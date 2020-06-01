@@ -73,13 +73,13 @@ curl --request GET 'http://localhost:3000/users/err'
 
  #### some example messages
    
-Debug : "UserCreationRequestReceived"
-Debug : "CheckingToSeeIfUserExists"
-trace : "DB Query Completed"
-trace : "MappingToUserObject"
-Debug : "UserDoesNotExist"
-Debug : "Creating User"
-info : "UserCreated"
+* Debug : "UserCreationRequestReceived"
+* Debug : "CheckingToSeeIfUserExists"
+* trace : "DB Query Completed"
+* trace : "MappingToUserObject"
+* Debug : "UserDoesNotExist"
+* Debug : "Creating User"
+* info : "UserCreated"
 
 
 #### web client (info)
