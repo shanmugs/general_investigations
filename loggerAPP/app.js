@@ -18,7 +18,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-//app.use(assignId)
+app.use(assignId)
 
 
 morgan.token('id', function getId (req) {

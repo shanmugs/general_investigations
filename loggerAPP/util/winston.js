@@ -10,8 +10,8 @@ const HOST = process.env.HOST || os.hostname();
 const LOG_CATEGORY = process.env.LOG_CATEGORY || "API";
 const LOG_LEVEL = process.env.LOG_LEVEL || "error";
 
-// console.log("**********APP_NAME************** "+process.env.APP_NAME)
-// console.log("**********LOG_LEVEL************** "+process.env.LOG_LEVEL)
+console.log("**********APP_NAME************** "+process.env.APP_NAME)
+console.log("**********LOG_LEVEL************** "+process.env.LOG_LEVEL)
 
 
 var options = {
@@ -42,7 +42,7 @@ const jsonFormatter = logEntry => {
     category:LOG_CATEGORY,
     level:logEntry.level
    };
-  const json = Object.assign(base, {log:logEntry});{"timestamp":"Mon, 01 Jun 2020 04:24:24 GMT","app":"loggerAPP","env":"development","host":"sathish-s","category":"API","level":"info","log":{"message":"::1 - - [01/Jun/2020:04:24:24 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36\"\n","level":"info"}}
+  const json = Object.assign(base, {log:logEntry});
   logEntry[MESSAGE] = JSON.stringify(json);
   return logEntry;
 };
