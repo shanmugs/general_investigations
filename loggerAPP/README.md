@@ -1,4 +1,4 @@
-# logging investigations
+# logging sample
 
 
 This repo for logging  sample repo for node.js with winston and morgan on express sevrer
