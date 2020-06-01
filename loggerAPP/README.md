@@ -49,7 +49,7 @@ curl --request GET 'http://localhost:3000/users/err'
 ```
                   
 {
-    "timestamp": <utc tiemstamp>,
+    "timestamp": <utc timestamp>,
     "level": <log level>,
     "env": <app env>,
     "app": <app name>,
@@ -61,11 +61,11 @@ curl --request GET 'http://localhost:3000/users/err'
         "response_id" : <reponse id> <optional>,
         "path": <request path> <optional>,
         "module":" <request module> <optional>,
-        "method": <request module> <optional>,
-        "function": <request module> <optional>,
-        "status": <request module> <optional>,
-        "message": <request module> <mandatory>,
-        "stacktrace": <request module> <mandatory_if_error>
+        "method": <request method> <optional>,
+        "function": <request function> <optional>,
+        "status": <request/response status> <optional>,
+        "message": <request/response log message obj/string> <mandatory>,
+        "stacktrace": <request/response error stacktrace obj/string > <mandatory_if_error>
       }
 }
 
@@ -91,16 +91,16 @@ info : "UserCreated"
     "app":"webclient",
     "host": "aws instance id",
     "log": { 
-     	"alert": false, 
-     	"user_id": "5",
-     	"request_id":"x232131434344sssqw2e222212",
-     	"response_id":"reskiejhi3wru32932545",
-      	"path": "https://aa.bss.com/core/v2/abcd",
-	    "module":" donor flow",
-      	"method": "GET",
-      	"function": "getABCD",
+        "alert": false, 
+        "user_id": "5",
+        "request_id":"x232131434344sssqw2e222212",
+        "response_id":"reskiejhi3wru32932545",
+        "path": "https://aa.bss.com/core/v2/abcd",
+        "module":" donor flow",
+        "method": "GET",
+        "function": "getABCD",
         "status":"200",
-     	"data": {'message':'calling api abcd with user id 5'},
+        "message": {'message':'calling api abcd with user id 5'},
       }
 }
 ```
@@ -118,11 +118,11 @@ info : "UserCreated"
         "request_id":"x232131434344sssqw2e222212",
         "response_id":"reskiejhi3wru32932545",
         "path": "https://aa.bss.com/core/v2/abcd",
-	    "module":" donor flow",
+	      "module":" donor flow",
         "method": "GET",
         "function": "getABCD",
         "status":"503",
-     	"data": {'message':'error while calling api abcd , user id  '},
+     	  "message": {'message':'error while calling api abcd , user id  '},
         "stacktrace":{'trace_data':'fdsfdsgsd fesffgwgrg'}
       }
 }
@@ -138,16 +138,15 @@ info : "UserCreated"
     "env": "STG",
     "app":"ror-api",
     "log": { 
-     	"tags": {'info'}, 
-     	"user_id": "5",
-     	"request_id":"x232131434344sssqw2e222212",
-      	"path": "https://aa.bss.com/core/v2/abcd",
-	    "module":" donor flow",
-      	"method": "GET",
-      	"function": "getABCD",
+        "tags": {'info'}, 
+        "user_id": "5",
+        "request_id":"x232131434344sssqw2e222212",
+        "path": "https://aa.bss.com/core/v2/abcd",
+        "module":" donor flow",
+        "method": "GET",
+        "function": "getABCD",
         "status":"",
-     	"data": {'message':'calling api abcd with user id 5'},
-      	"stacktrace":{}
+        "message": {'message':'calling api abcd with user id 5'},
       }
 }
 ```
@@ -169,7 +168,7 @@ info : "UserCreated"
         "method": "GET",
         "function": "getABCD",
         "status":"503",
-     	"data": {'message':'error while calling api abcd , user id  '},
+     	  "message": {'message':'error while calling api abcd , user id  '},
         "stacktrace":{'trace_data':'fdsfdsgsd fesffgwgrg'}
       }
 }
@@ -184,16 +183,15 @@ info : "UserCreated"
     "env": "STG",
     "host": "heroku app id",
     "log": { 
-     	"tags": {'info'}, 
-     	"user_id": "5",
-     	"request_id":"x232131434344sssqw2e222212",
+     	  "tags": {'info'}, 
+     	  "user_id": "5",
+     	  "request_id":"x232131434344sssqw2e222212",
       	"path": "https://aa.bss.com/graph/v2/abcd",
       	"method": "GET",
-	    "module":" donor flow",
-     	"function": "getABCD",
+	      "module":" donor flow",
+     	  "function": "getABCD",
         "status":"",
-     	"data": {'message':'calling api abcd with user id 5'},
-      	"stacktrace":{}
+      	"message": {'message':'calling api abcd with user id 5'},
       }
 }
 ```
@@ -207,7 +205,7 @@ info : "UserCreated"
      module:" donor flow",
     "host": "heroku app id",
     "log": { 
-    	"tags": {'error_alert' }, 
+    	  "tags": {'error_alert' }, 
         "user_id": "5",
         "request_id":"x232131434344sssqw2e222212",
         "response_id":"reskiejhi3wru32932545",
@@ -215,7 +213,7 @@ info : "UserCreated"
         "method": "GET",
         "function": "getABCD",
         "status":"503",
-     	"data": {'message':'error while calling api abcd , user id  '},
+     	  "message": {'message':'error while calling api abcd , user id  '},
         "stacktrace":{'trace_data':'fdsfdsgsd fesffgwgrg'}
       }
 }
